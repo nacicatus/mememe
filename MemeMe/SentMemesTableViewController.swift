@@ -50,10 +50,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Set the memed image & labels
         cell.imageView?.image = meme.memedImage
         cell.textLabel?.text = meme.topText
-        
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = meme.bottomText
-        }
+        cell.detailTextLabel?.text = meme.bottomText
         return cell
     }
     
