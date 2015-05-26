@@ -29,9 +29,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         // If we have no memes...
         if !weHaveMemes {
             weHaveMemes = true
-            if memes.count == 0 {
-                performSegueWithIdentifier("AddMeme", sender: self)
-            }
+//            if memes.count == 0 {
+//                performSegueWithIdentifier("AddMeme", sender: self)
+//            }
         }
         
         if tableView.numberOfRowsInSection(0) != memes.count {
