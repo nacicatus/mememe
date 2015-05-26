@@ -49,8 +49,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Set the memed image & labels
         cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.topText
-        cell.detailTextLabel?.text = meme.bottomText
+        cell.textLabel?.text = meme.topText + "..." + meme.bottomText
         return cell
     }
     

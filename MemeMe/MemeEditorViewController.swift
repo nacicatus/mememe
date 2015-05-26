@@ -65,23 +65,25 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
 
-    // Clear text fields when user begins editing
+    // Clear text fields and Autocapitalize Text
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.tag == 0 {
             if !topTextFieldFinishedEditing {
                 textField.text = ""
+                topTextField?.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
                 topTextFieldFinishedEditing = true
             }
         }
         else if textField.tag == 1 {
             if !bottomTextFieldFinishedEditing {
                 textField.text = ""
+                bottomTextField?.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
                 bottomTextFieldFinishedEditing = true
             }
         }
     }
     
-    // Hide the keyboard when user hits the return key
+    // Hide the keyboard on return key
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
