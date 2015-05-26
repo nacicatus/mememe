@@ -21,7 +21,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
 
         if collectionView.numberOfItemsInSection(0) != memes.count {
@@ -34,7 +34,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as MemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[indexPath.row]
         cell.memedImageView.image = meme.memedImage
         return cell
@@ -43,7 +43,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDataS
     // After selecting image, GOTO detail controller
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as MemeDetailViewController
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailVC.meme = self.memes[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

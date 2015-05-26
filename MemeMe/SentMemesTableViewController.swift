@@ -23,7 +23,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         super.viewWillAppear(animated)
         
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         
         // If we have no memes...
@@ -44,7 +44,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell") as! UITableViewCell
         let meme = self.memes[indexPath.row]
         
         // Set the memed image & labels
@@ -55,7 +55,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     // After selecting image, GOTO detail controller
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as MemeDetailViewController
+        let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailViewController.meme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailViewController, animated: false)
         
